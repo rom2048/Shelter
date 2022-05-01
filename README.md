@@ -1,5 +1,4 @@
-# [Shelter - deploy link](https://rolling-scopes-school.github.io/rom2048-JSFE2022Q1/shelter/dist/pages/main.html)
-
+# [Shelter - deploy link](https://rom2048.github.io/Shelter/shelter/pages/main)
 Shelter - это проект, в котором вам предстоит сверстать сайт, состоящий из двух страниц, сделать его адаптивным и интерактивным.
 
 **[Макет Shelter. Figma](https://www.figma.com/file/tKcmzkARtMUFQAR9VLdLkl/shelter-dom)**
