@@ -1,0 +1,247 @@
+@import '../../components/sass/global.scss';
+.header {
+    width: 100%;
+    z-index: 1;
+    left: 0;
+    transition: all .3s ease 0s;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width:767px){
+            max-width: calc(708px + 4%);
+        }
+    }
+    .header__logo {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        transition: all .7s ease 0s;        
+        .header__logo-title {
+            font-family: Georgia;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 2rem;
+            line-height: 110%;
+            letter-spacing: 0.06em;      
+        }
+        .header__logo-subtitle {
+            font-family: Arial;
+            font-style: normal;
+            font-weight: 400;
+            font-size: .813rem;
+            line-height: 15px;
+            letter-spacing: 1.31px;
+            margin: 10px 0 0 4px;
+        }
+    }
+    .header__logo.active {
+        z-index: 2;
+        @media (max-width:767px) {
+            position: fixed;
+            top: 30px;
+            right: 125px;
+            animation: menuLogo .7s ease;
+        }
+    }
+    .menu__icon {
+        display: none;
+        @media (max-width:767px) {
+            display: block;
+            width: 30px;
+            height: 22px;
+            cursor: pointer;
+            position: absolute;
+            right: 53px;
+            z-index: 2;
+            transition: all 0.3s ease 0s;
+
+            &::after, &::before, span{
+                position: absolute;
+                left: 0;
+                height: 9.1%;
+                width: 100%;
+            }
+            &::after, &::before {
+                content: '';
+            }
+            &::after {
+                top: 0;
+            }
+            &::before {
+                bottom: 0;
+            }
+            span {
+                top: 50%;
+                transform: scale(1) translate(0px, -50%);
+            }
+        }
+    }
+    .menu__icon.active {
+        transform: rotate(90deg);
+        position: fixed;
+        top: 50px;
+        right: 53px;
+    }
+    .menu {
+        margin-top: -4px;
+        position: relative;
+        transition: all .7s ease;
+        @media (max-width: 767px){
+            display: block;
+            position: fixed;
+            margin-top: 0;
+            top: 0;
+            right: -200%;
+            bottom: 0;
+            width: 320px;
+        }  
+    }
+    .header__menu-list {
+        display: flex;
+        align-items: center;
+        column-gap: 35px;
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
+            column-gap: 0;
+            row-gap: 40px;
+            justify-content: center;
+            padding-top: 250px;
+        }
+    }
+    li {
+        position: relative;
+        margin-left: 1px;
+        .active {
+            &::after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 3px;
+                background-color: $main-color;
+                bottom: -6px;
+                left: 0;
+            }
+        }
+    }
+    .header__menu-link {
+        font-family: Arial;
+        font-style: normal;
+        font-weight: normal;
+        font-size: .938rem;
+        transition: all .3s ease 0s;
+        @media (max-width: 767px) {
+            font-size: 2rem;
+            line-height: 51.2px;
+        }
+    }
+    .menu__body.active {
+        right: 0;
+    }
+}
+
+.main__header {
+    position: absolute;
+    top: 60px;
+    @media screen and (max-width: 1279px) {
+        top: 30px;
+    }
+    .header__logo{
+        &:hover {
+            .header__logo-title {
+                color: $hover-color;
+            }
+            .header__logo-subtitle {
+                color: $color-light-l;
+            }
+        }
+        .header__logo-title{
+            color: $main-color;
+        }
+        .header__logo-subtitle {
+            color: $color-light-xl;
+        }
+    }
+    .menu__icon {
+        &::after, &::before, span {
+            background-color: $main-color;
+        }
+    }
+    .menu {
+        @media (max-width: 767px){
+            background: $color-dark-3xl;
+        }
+    }
+    
+    .active {
+        color: $color-light-s;
+    }
+    .header__menu-link {
+        &:hover {
+            color: $color-light-s;
+        }
+    }
+}
+
+.pets__header {
+    position: fixed;
+    top: 0;
+    background: $color-light-xl;
+    
+    .container {
+        padding: 30px 2%;
+    }
+    .header__logo{
+        &:hover {
+            .header__logo-title {
+                color: $color-dark-m;
+            }
+            .header__logo-subtitle {
+                color: $color-dark-2xl;
+            }
+        }
+    }
+    .header__logo-title{
+        color: $color-dark-l;
+    }
+    .header__logo-subtitle {
+        color: $color-dark-3xl;
+    }
+    .menu__icon {
+        &::after, &::before, span {
+            background-color: $color-dark-l;
+        }
+    }
+    .menu {
+        @media (max-width: 767px){
+            background: $color-light-xl;
+        }
+    }
+    .active {
+        color: $color-dark-3xl;
+    }
+    .header__menu-link {
+        &:hover {
+            color: $color-dark-3xl;
+        }
+    }
+}
+
+@keyframes menuLogo {
+    from {
+        right: 30%;
+    }
+    to {
+        right: 125px;
+    }
+}
+
+@keyframes menuLogoDefault {
+    from {
+        right: 125px;
+    }
+    to {
+        right: 75%;
+    }
+}

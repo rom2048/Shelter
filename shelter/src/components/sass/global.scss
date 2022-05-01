@@ -1,0 +1,349 @@
+@font-face {
+	font-family: 'arial';
+	src: url('../../assets/fonts/arial/arial\ regular.ttf') format('truetype'), url('../../assets/fonts/arial/arial\ italic.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'georgia';
+	src: url('../../assets/fonts/georgia/georgia\ regular.ttf') format('truetype'), url('../../assets/fonts/georgia/georgia\ bold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*,*::after,*::before {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+ul, ol, li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+    color: $color-dark-s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+	font-family: Georgia;
+	font-style: normal;
+	font-weight: 400;
+    font-size: 16px;
+	color: $color-dark-l;
+	transition: all .3s ease;
+}
+
+.section-title {
+	font-weight: normal;
+	font-size: 2.188rem;
+	line-height: 130%;
+	letter-spacing: 0.06em;
+	@media screen and (max-width:767px) {
+		font-size: 1.563rem;
+		text-align: center;
+	}
+}
+
+.container {
+    max-width: calc(1200px + 4%);
+    margin: 0 auto;
+    padding: 0 2%;
+	@media (max-width: 1279px){
+		max-width: calc(708px + 4%);
+	}
+	@media screen and (max-width:767px){
+		max-width: calc(300px + 4%);
+	}
+}
+
+img {
+	max-width: 100%;
+}
+
+._lock {
+	overflow: hidden;
+}
+
+.btn{
+	font-size: 1.063rem;
+	line-height: 130%;
+	letter-spacing: 0.06em;
+	padding: 16px 45px;
+	border-radius: 100px;
+	color: $color-dark-3xl;
+	background: $main-color;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-overlay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 319px);
+    height: 100%;
+    background-color: $color-overlay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: show .7s ease;
+    z-index: 1;
+    @media screen and (max-width: 320px) {
+        width: 0;
+    }
+}
+
+.modal {
+    position: relative;
+    width: 952px;
+    min-height: 552px;
+    max-height: 90%;
+    overflow: auto;
+    animation: grow .3s ease;
+    @media screen and (max-width: 1279px) {
+        width: 682px;
+        min-height: 402px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 271px;
+    }
+}
+
+.modal_btn{
+    position: absolute;
+    top: 0;
+    right: 9px;
+    align-self: center;
+    background: url(../../assets/icons/modal-close-btn.svg) center no-repeat;
+    width: 52px;
+    height: 52px;
+    border-radius: 100px;
+    border: 2px solid $main-color;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .3s ease 0s;
+    &:hover {
+        background-color: $hover-color;
+        border-color: $hover-color;
+    }
+    @media screen and (max-width: 767px) {
+        right: 1px;
+    }
+}
+
+.modal__content {
+    display: flex;
+    margin-top: 52px;
+    border-radius: 9px;
+    background: $color-light-s;
+    width: 900px;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+    @media screen and (max-width: 1279px) {
+        width: 630px;
+    }
+    
+    img {
+        flex: 0 0 55%;
+    }
+    @media screen and (max-width: 767px) {
+        width: 240px;
+        img {
+            flex: 0 0 0%;
+            width: 0;
+        }
+    }
+}
+
+
+
+.modal-text__content {
+    padding: 50px 20px 88px 29px;
+    color: $color-modal-text;
+    letter-spacing: 0.06em;
+    @media screen and (max-width: 1279px) {
+        padding: 10px 9px 37px 10px;
+    }
+}
+
+.modal-title {
+    @media screen and (max-width: 767px) {
+        text-align: center;
+        font-size: 2.188rem;
+    }
+}
+
+
+.modal__subtitle {
+    padding-top: 10px;
+    font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 23px;
+    letter-spacing: 0.06em;
+    color: $color-modal-text;
+    @media screen and (max-width: 767px) {
+        text-align: center;
+    }
+}
+
+.modal-description {
+    padding-top: 40px;
+    font-size: .938rem;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: $color-modal-text;
+    @media screen and (max-width: 1279px) {
+        font-size: .813rem;
+        line-height: 110%;
+        padding-top: 21px;
+    }
+    @media screen and (max-width: 767px) {
+        text-align: justify;
+    }
+}
+
+.modal-list__wrapper {
+    padding-top: 40px;
+    color: $color-modal-text;
+    display: flex;
+    flex-direction: column;
+    row-gap: 11.5px;
+    @media screen and (max-width: 1279px) {
+        padding-top: 19px;
+        row-gap: 6px;
+    }
+    @media screen and (max-width: 767px) {
+        padding-top: 22px;
+    }
+    li {
+        background: url(../../assets/icons/dot.svg) left center no-repeat;
+        font-size: .938rem;
+        line-height: 110%;
+        padding: 0 0 0 15px;
+        letter-spacing: 0.06em;
+    }
+}
+
+.bold {
+    font-weight: 700;
+    @media screen and (max-width: 1279px) {
+        letter-spacing: 0.16em;
+    }
+}
+
+.card {
+    background: $color-light-s;
+    border-radius: 9px;
+    cursor: pointer;
+    height: 435px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all .8s ease;
+    
+    &:hover {
+        @include cardHover;
+        .card__link {
+            background: $hover-color;
+            border-color: $hover-color;
+        }
+    }
+}
+
+.card__title {
+    font-weight: normal;
+    font-size: 1.25rem;
+    letter-spacing: 0.06em;
+    line-height: 23px;
+    padding-top: 30px;
+}
+
+.card__link{
+    font-size: 1.063rem;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    padding: 13px 43px;
+    color: $color-dark-3xl;
+    background: $color-light-s;
+    border: 2px solid $main-color;
+    border-radius: 100px;
+    margin: 30px 0;
+    transition: all .3s ease;
+}
+
+.from-left {
+    animation: fromLeft .8s ease;
+}
+
+.from-right {
+    animation: fromRight .8s ease;
+}
+
+.petsAnimation {
+    animation: rotateCard .8s ease ;
+}
+
+@keyframes fromLeft {
+    from {
+        transform: translateX(-1050px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fromRight {
+    from {
+        transform: translateX(1050px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes grow {
+    from {
+        transform: scale(.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotateCard {
+    from {
+        transform: scale(.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes show {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}
